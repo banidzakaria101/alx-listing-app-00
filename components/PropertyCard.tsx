@@ -1,5 +1,5 @@
 import React from "react";
-import { PropertyProps } from "../interfaces";
+import { PropertyProps } from "@/interfaces";
 
 const PropertyCard: React.FC<{ property: PropertyProps }> = ({ property }) => {
   return (
@@ -10,19 +10,33 @@ const PropertyCard: React.FC<{ property: PropertyProps }> = ({ property }) => {
         className="w-full h-48 object-cover"
       />
       <div className="p-4">
-        <h3 className="text-lg font-semibold mb-1">{property.name}</h3>
-        <p className="text-sm text-gray-500 mb-2">
+        <h3 className="text-lg font-semibold">{property.name}</h3>
+        <p className="text-gray-600">
           {property.address.city}, {property.address.state}, {property.address.country}
         </p>
-        <p className="text-yellow-600 font-medium mb-1">⭐ {property.rating}</p>
-        <p className="text-gray-800 font-semibold text-lg">
-          ${property.price.toLocaleString()}{" "}
-          <span className="text-sm text-gray-500">/night</span>
-        </p>
+        <div className="mt-2 flex flex-wrap gap-2">
+          {property.category.map((cat, index) => (
+            <span
+              key={index}
+              className="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm"
+            >
+              {cat}
+            </span>
+          ))}
+        </div>
+        <div className="mt-2 text-gray-800 font-semibold">
+          ${property.price.toLocaleString()}
+        </div>
+        <div className="mt-1 text-yellow-500">
+          ⭐ {property.rating.toFixed(2)}
+        </div>
+        <div className="mt-2 text-sm text-gray-600">
+          Beds: {property.offers.bed} | Showers: {property.offers.shower} | Occupants: {property.offers.occupants}
+        </div>
         {property.discount && (
-          <p className="text-green-600 text-sm font-bold mt-1">
+          <div className="mt-2 text-red-500 font-bold">
             {property.discount}% OFF
-          </p>
+          </div>
         )}
       </div>
     </div>
