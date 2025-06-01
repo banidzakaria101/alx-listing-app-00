@@ -1,13 +1,24 @@
-import { PillProps } from "@/interfaces"
+import React from "react";
 
-const Pill: React.FC<PillProps> = ({ label, onClick, isActive}) => {
-    return (
-        <button onClick={onClick} className={`px-4 py-2 rounded-full text-sm font-medium ${
-            isActive? "bg-indigo600 text-whte" : "bg-gray-200 text-gray-700 hover: bg-gray-300"
-        }`}>
-            {label}
-        </button>
-    )
+interface PillProps {
+  label: string;
+  onClick: () => void;
+  isActive: boolean;
 }
+
+const Pill: React.FC<PillProps> = ({ label, onClick, isActive }) => {
+  return (
+    <button
+      onClick={onClick}
+      className={`px-4 py-2 rounded-full border ${
+        isActive
+          ? "bg-blue-600 text-white"
+          : "bg-white text-gray-600 hover:bg-gray-100"
+      }`}
+    >
+      {label}
+    </button>
+  );
+};
 
 export default Pill;

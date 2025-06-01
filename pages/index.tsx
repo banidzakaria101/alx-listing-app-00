@@ -1,17 +1,21 @@
+import React from "react";
+
 const Hero: React.FC = () => {
   return (
-    <section className="bg-cover bg-center h-96 flex items-center justify-center"
-    style={{ backgroundImage: "url('/images/hero.jpg')"}}>
+    <section
+      className="bg-cover bg-center h-96 flex items-center justify-center text-white"
+      style={{
+        backgroundImage: "url('https://www.thelembongantraveller.com/wp-content/uploads/2025/03/1-Hero-shot-Ocean-Blue-1.jpg)",
+      }}
+    >
       <div className="bg-black bg-opacity-50 p-8 rounded">
-        <h1 className="text-white text-4x1 font-bold mb-4">
-          find your favorite place here!
-        </h1>
-        <p className="text-white text-lg">
-          the best  prices for over 2 million properties worldwilde.
+        <h1 className="text-4xl font-bold mb-4">Find your favorite place here!</h1>
+        <p className="text-lg">
+          The best prices for over 2 million properties worldwide.
         </p>
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default Hero;
